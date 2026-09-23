@@ -1,0 +1,70 @@
+{
+  "manifest_version": 3,
+  "name": "The 6K Extension",
+  "version": "1.0.2",
+  "description": "Unified jpdb, ImmersionKit, Yomitan, and Anki tools for anime sentence mining.",
+  "permissions": [
+    "storage",
+    "clipboardWrite",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://jpdb.io/*",
+    "https://www.immersionkit.com/*",
+    "https://immersionkit.com/*",
+    "https://*.immersionkit.com/*",
+    "https://apiv2.immersionkit.com/*",
+    "http://127.0.0.1/*",
+    "http://localhost/*",
+    "http://[::1]/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "The 6K Extension settings",
+    "default_popup": "onboarding.html"
+  },
+  "options_page": "onboarding.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://jpdb.io/anime/*",
+        "https://jpdb.io/deck*"
+      ],
+      "js": [
+        "jlpt-data.js",
+        "core.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://jpdb.io/settings"
+      ],
+      "js": [
+        "jpdb-connect.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.immersionkit.com/*",
+        "https://immersionkit.com/*",
+        "https://*.immersionkit.com/*"
+      ],
+      "js": [
+        "immersionkit-content.js"
+      ],
+      "css": [
+        "immersionkit-content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

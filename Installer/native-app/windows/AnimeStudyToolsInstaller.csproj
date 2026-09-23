@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>The6KExtensionInstaller</AssemblyName>
+    <Version>1.0.2</Version>
+    <FileVersion>1.0.2</FileVersion>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\payload\extensions\**\*">
+      <LogicalName>payload/extensions/%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\yomitan-api-host.exe">
+      <LogicalName>helper/yomitan-api-host.exe</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\helper\LICENSE.yomitan-api.txt">
+      <Link>helper\LICENSE.yomitan-api.txt</Link>
+      <LogicalName>helper/LICENSE.yomitan-api.txt</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

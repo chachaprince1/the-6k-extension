@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The 6K Extension settings</title>
+  <link rel="stylesheet" href="onboarding.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">THE 6K EXTENSION · SETUP</p>
+      <h1>One workspace.<br>Every card source.</h1>
+      <p>Connect jpdb, Yomitan, and Anki once. Mine complete ImmersionKit cards.</p>
+    </header>
+
+    <section class="setup-card" aria-labelledby="setup-heading">
+      <div class="section-heading">
+        <div>
+          <h2 id="setup-heading">Connections and defaults</h2>
+          <p id="overall-status" class="help" role="status" aria-live="polite">Checking your connections…</p>
+        </div>
+        <button id="test-connections" class="text-button" type="button">Check again</button>
+      </div>
+
+      <div id="connection-status" class="connection-list">
+        <article id="jpdb-row" class="connection-row checking">
+          <span class="status-icon" aria-hidden="true"></span>
+          <div class="connection-body">
+            <div class="connection-heading">
+              <h3>jpdb</h3>
+              <span id="jpdb-badge" class="status-badge">Checking</span>
+            </div>
+            <p id="jpdb-detail">Checking the official API…</p>
+            <div id="jpdb-actions" class="button-row" hidden>
+              <button id="connect-jpdb" class="primary" type="button">Connect signed-in account</button>
+              <button id="show-manual-key" class="secondary" type="button">Paste key instead</button>
+            </div>
+            <div id="jpdb-connected-actions" class="button-row quiet-actions" hidden>
+              <button id="disconnect-jpdb" class="text-button" type="button">Forget API key</button>
+            </div>
+          </div>
+        </article>
+
+        <article id="yomitan-row" class="connection-row checking">
+          <span class="status-icon" aria-hidden="true"></span>
+          <div class="connection-body">
+            <div class="connection-heading">
+              <h3>Yomitan</h3>
+              <span id="yomitan-badge" class="status-badge">Checking</span>
+            </div>
+            <p id="yomitan-detail">Checking the local Yomitan bridge…</p>
+            <div id="yomitan-setup-actions" class="button-row" hidden>
+              <button id="open-yomitan-api" class="primary" type="button">Open API switch</button>
+            </div>
+            <div id="yomitan-format-actions" class="button-row" hidden>
+              <button id="open-yomitan-formats" class="primary" type="button">Choose card format</button>
+            </div>
+          </div>
+        </article>
+
+        <article id="anki-row" class="connection-row checking">
+          <span class="status-icon" aria-hidden="true"></span>
+          <div class="connection-body">
+            <div class="connection-heading">
+              <h3>Anki</h3>
+              <span id="anki-badge" class="status-badge">Checking</span>
+            </div>
+            <p id="anki-detail">Checking AnkiConnect…</p>
+            <div id="anki-actions" class="button-row" hidden>
+              <a class="button secondary" href="https://ankiweb.net/shared/info/2055492159" target="_blank" rel="noreferrer">Get AnkiConnect ↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div id="ready-panel" class="ready-panel" hidden>
+        <div>
+          <strong id="ready-title">You’re ready</strong>
+          <p id="ready-detail">Open a jpdb anime page and click Add to Anki.</p>
+        </div>
+        <div class="ready-actions">
+          <a class="button primary" href="https://jpdb.io/anime-difficulty-list" target="_blank" rel="noreferrer">Browse anime on jpdb ↗</a>
+          <a class="button secondary" href="https://www.immersionkit.com/" target="_blank" rel="noreferrer">Make cards from ImmersionKit ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <details id="cleanup-settings">
+      <summary>
+        <span>JPDB Cleanup Defaults</span>
+        <small>Particles and vocalizations are skipped</small>
+      </summary>
+      <p class="help">Every skipped item remains visible in review and can be restored before import.</p>
+      <div class="check-grid">
+        <label><input id="skip-particles" type="checkbox"> <span><strong>Particles</strong><small>は, が, に, を, で, よ, ね…</small></span></label>
+        <label><input id="skip-vocalizations" type="checkbox"> <span><strong>Vocalizations</strong><small>Laughs and sounds such as ふふ, はぁ…</small></span></label>
+        <label><input id="skip-semantic-grammar" type="checkbox"> <span><strong>Semantic grammar</strong><small>だけ, しか, のに, なんて…</small></span></label>
+        <label><input id="skip-title-honorifics" type="checkbox"> <span><strong>Title honorifics</strong><small>さん, 様, 先生, 先輩…</small></span></label>
+        <label><input id="skip-title-positions" type="checkbox"> <span><strong>Title positions</strong><small>部長, 社長, 教授, 王…</small></span></label>
+      </div>
+      <label class="inline-check"><input id="include-media" type="checkbox"> Include Yomitan audio and dictionary images when adding directly to Anki (slower)</label>
+    </details>
+
+    <details id="manual-settings">
+      <summary>
+        <span>Manual and advanced setup</span>
+        <small>API key and local addresses</small>
+      </summary>
+      <div id="manual-key-panel" class="manual-key-panel">
+        <div class="manual-heading">
+          <div>
+            <label for="jpdb-api-key"><strong>jpdb API key</strong></label>
+            <p>Manual fallback: copy the key from <a href="https://jpdb.io/settings" target="_blank" rel="noreferrer">jpdb settings ↗</a>. Saved keys are hidden for security; paste a replacement key below if needed.</p>
+          </div>
+        </div>
+        <div class="inline-field">
+          <input id="jpdb-api-key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste API key">
+          <button id="save-jpdb-key" class="secondary" type="button">Connect key</button>
+        </div>
+      </div>
+      <div class="advanced-grid">
+        <label class="field"><span>Yomitan API address</span><input id="yomitan-url" type="url" spellcheck="false"></label>
+        <label class="field"><span>AnkiConnect address</span><input id="anki-url" type="url" spellcheck="false"></label>
+      </div>
+    </details>
+
+    <div id="save-status" class="autosave-status" role="status" aria-live="polite">Settings save automatically.</div>
+  </main>
+  <script src="core.js"></script>
+  <script src="onboarding.js"></script>
+</body>
+</html>

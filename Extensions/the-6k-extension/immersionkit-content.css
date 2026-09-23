@@ -1,0 +1,35 @@
+.ik-full-add { margin: 0 .5rem .5rem 0; min-height:42px; padding: .52rem .85rem; border:0; border-radius:6px; background:#c7c7c7; color:#161616; font:700 17px system-ui,-apple-system,sans-serif; cursor:pointer; vertical-align:middle; }
+.ik-full-add::before { content:"✚"; display:inline-block; margin-right:.48rem; font-size:18px; line-height:1; }.ik-full-add:hover { background:#b6b6b6; }.ik-full-add:disabled { opacity:.7; cursor:progress; }
+.ik-full-add[data-mode="view"]::before { content:"↗"; }
+.ik-full-dialog-backdrop { position: fixed; inset: 0; z-index: 2147483647; background: rgba(0,0,0,.5); display:grid; place-items:center; }
+.ik-full-dialog { width:min(440px,calc(100vw - 32px)); background:#fff; color:#202124; border-radius:12px; padding:22px; box-shadow:0 16px 50px rgba(0,0,0,.3); font:14px system-ui; }.ik-full-dialog h2{margin:0 0 8px}.ik-full-dialog label{display:block;margin-top:14px;font-weight:600}.ik-full-dialog select,.ik-full-dialog input{box-sizing:border-box;width:100%;margin-top:5px;padding:9px;border:1px solid #bbb;border-radius:6px}.ik-full-dialog .actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.ik-full-dialog button{padding:9px 13px;border-radius:6px;border:0;background:#087f8c;color:white;font-weight:600;cursor:pointer}.ik-full-dialog button.secondary{background:#e8eaed;color:#202124}.ik-full-status{margin-top:12px;color:#b3261e;min-height:18px}
+.ik-full-controls{display:inline-flex;align-items:stretch;margin:0 .5rem .5rem 0;vertical-align:middle;gap:1px}
+.ik-full-controls .ik-full-add{margin:0;border-radius:6px 0 0 6px}
+.ik-full-settings{width:32px;padding:0;border:0;border-radius:0 6px 6px 0;background:#c7c7c7;color:#444;font:20px system-ui;cursor:pointer}
+.ik-full-settings:hover{background:#b6b6b6;color:#111}
+.ik-full-settings:focus-visible,.ik-full-add:focus-visible,.ik-full-dialog :focus-visible{outline:3px solid #087f8c;outline-offset:2px}
+.ik-full-dialog{box-sizing:border-box;width:min(560px,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow-y:auto;line-height:1.5}
+.ik-full-dialog [hidden]{display:none!important}
+.ik-mapping-heading{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+.ik-mapping-heading p{margin:0;max-width:390px}
+.ik-mapping-details{margin-top:18px;border:1px solid #c9cdd1;border-radius:8px;background:#fafbfc}
+.ik-mapping-details summary{padding:11px 13px;font-weight:700;font-size:16px;cursor:pointer;list-style-position:outside;margin-left:18px}
+.ik-mapping-details[open] summary{border-bottom:1px solid #d8dadd}
+.ik-mapping-body{padding:0 13px 10px}
+.ik-mappings{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.ik-full-dialog button:disabled{opacity:.5;cursor:wait}
+.ik-field-help{font-size:12px;color:#555}
+.ik-full-dialog .actions{position:sticky;bottom:-22px;background:white;padding:12px 0}
+.ik-full-dialog textarea{box-sizing:border-box;width:100%;margin-top:5px;padding:9px;border:1px solid #bbb;border-radius:6px;resize:vertical;font:inherit}
+.ik-full-dialog input[type="checkbox"]{width:auto;margin-right:7px}
+.ik-full-dialog .ik-missing-option{font-weight:500;color:#8a3b12}
+.ik-full-dialog .ik-setting-toggle{display:flex;align-items:center;gap:10px;font-weight:600}
+.ik-full-dialog .ik-setting-toggle input{width:18px;height:18px;margin:0;accent-color:#087f8c}
+.ik-original-anki-note{margin:6px 0 0;padding:9px 10px;border-left:3px solid #a35b00;background:#fff6e7;color:#6d4200;font-size:13px}
+.ik-native-anki{display:none!important}
+html.ik-use-original-anki-only .ik-native-anki{display:inline-flex!important}
+.ik-media-status{margin:12px 0 0;padding:8px 10px;border-radius:6px;background:#f2f4f5;color:#444;font-size:13px}
+.ik-connection-actions{display:flex;gap:8px;align-items:center;margin-top:6px;min-height:31px}.ik-connection-actions button{white-space:nowrap}.ik-connection-status{font-size:12px;color:#087f8c}
+.ik-preview{width:min(520px,calc(100vw - 24px))}.ik-preview label{margin-top:10px}
+.ik-busy-notice{position:fixed;z-index:2147483647;top:20px;left:50%;transform:translateX(-50%);width:min(520px,calc(100vw - 32px));box-sizing:border-box;padding:14px 18px;border-radius:8px;background:#8f2d27;color:#fff;box-shadow:0 8px 28px rgba(0,0,0,.35);font:700 15px/1.4 system-ui,-apple-system,sans-serif;text-align:center}
+@media(max-width:460px){.ik-mappings{grid-template-columns:1fr}}

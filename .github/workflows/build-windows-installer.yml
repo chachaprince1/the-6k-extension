@@ -1,0 +1,39 @@
+name: Build Windows Installer
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Build self-contained Windows installer
+        shell: pwsh
+        run: ./Installer/native-app/build-windows.ps1
+
+      - name: Upload Windows installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: the-6k-windows-installer
+          path: |
+            Installer/native-app/dist/windows/The6KExtensionInstaller.exe
+            Installer/native-app/dist/windows/The6KExtensionInstaller.exe.sha256
+          if-no-files-found: error

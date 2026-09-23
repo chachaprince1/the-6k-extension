@@ -1,0 +1,19 @@
+.DS_Store
+
+# Historical local copies and generated release artifacts are not source.
+Extensions/.anime-episode-to-anki.backup-*/
+Extensions/.immersionkit-full-card-extension.backup-*/
+Extensions/anime-episode-to-anki/
+Extensions/immersionkit-full-card-extension/
+Installer/the-6k-extension-installer/
+Installer/the-6k-extension-installer.zip
+Installer/native-app/dist/
+Installer/native-app/windows/resources/
+Installer/native-app/.build/
+Installer/native-app/helper/.build/
+Installer/native-app/macos/Resources/yomitan-api-host
+Yomitan API/
+
+# Local Chrome/native-host runtime data.
+*.backup-*
+*.log
